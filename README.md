@@ -5,13 +5,7 @@
 ![Version 0.1_Back](https://github.com/freakdoctor/game-and-watch-R16-hardware/blob/main/Visuels/Game_and_Watch_R16.png "Version 0.1_Back")
 
 
-![progress](https://raw.githubusercontent.com/Upcycle-Electronics/game-and-watch-hardware/main/Images-Version-Current/workinprogress/progress.jpg "progress")
+![Version 0.1_Schematics](https://github.com/freakdoctor/game-and-watch-R16-hardware/blob/main/Visuels/G%26W-R16-Schematics.jpg "Version 0.1_Schematics")
 
+![Version 0.1_PCB](https://github.com/freakdoctor/game-and-watch-R16-hardware/blob/main/Visuels/G%26W-R16-PCB.jpg "Version 0.1_PCB")
 
-![PinMap](https://raw.githubusercontent.com/Upcycle-Electronics/game-and-watch-hardware/main/Images-Version-Current/GnWuCpinmap-port-oriented.jpg "PinMap")
-
-![Layer 1](https://github.com/Upcycle-Electronics/game-and-watch-hardware/blob/main/Images-Version-Current/final-trace/GnWtrace-master-L1.jpg "Layer 1")
-
-![Layer 2](https://github.com/Upcycle-Electronics/game-and-watch-hardware/blob/main/Images-Version-Current/final-trace/GnWtrace-master-L2.jpg "Layer 2")
-
-![Layer 3](https://github.com/Upcycle-Electronics/game-and-watch-hardware/blob/main/Images-Version-Current/final-trace/GnWtrace-master-L3.jpg "Layer 3")
