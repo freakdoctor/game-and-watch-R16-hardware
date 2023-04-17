@@ -1,0 +1,143 @@
+iMX233-OLinuXino Debian rootfs generation
+
+If you find this boring the good news is that we have already pre-build Debian rootfs and you can just download it from here: https://docs.google.com/open?id=0B-bAEPML8fwlOHJkX2ZNanVfR2s
+Then read how to make your boot SD-card as described here: https://github.com/OLIMEX/OLINUXINO/blob/master/SOFTWARE/iMX233/DEBIAN/DEBIAN-README.TXT
+
+Otherwise if you want to go through the learning path follow these instructions:
+
+
+1. Prepare empty file system - it's good to be > 500MB, in this example we make it 1GB
+
+  $ dd if=/dev/zero of=my.img bs=1024 count=1MB
+
+2. Format the image with the desired root fs, in this example -ext3
+
+  $ sudo mkfs.ext3 -F my.img
+
+3. Mount the image
+
+  $ mkdir rootfs
+  $ sudo mount -o loop my.img rootfs/
+
+4. Install Debian toor file system phase 1
+ 
+  $ sudo debootstrap --verbose --arch armel --variant=minbase --foreign squeeze rootfs/http://ftp.debian.org/debian
+
+5. Install the packages necessary for emulation of armel with x86. 
+Note: If you make installation of 'Debian squeeze' you must install newer version of 'qemu-user-static' (otherwise you will see error qemu: Unsupported syscall: 341 when you generate the image in phase 2)
+
+Only for 'Debian squeeze'
+
+Add these lines in /etc/apt/preferences 
+
+  Package: *
+  Pin: release a=stable
+  Pin-Priority: 900
+  Package: *
+  Pin: release o=Debian
+  Pin-Priority: -10
+ 
+add in /etc/apt/apt.conf.d/70debconf
+  
+  APT::Default-Release "stable";
+ 
+add in /etc/apt/sources.list
+
+  deb http://ftp.debian.org/debian/ testing main contrib
+
+update the list of the packages
+
+  $ sudo apt-get update
+
+
+install qemu-user-static
+
+  $ sudo apt-get install -t testing qemu-user-static
+
+install binfmt-support
+
+  $ sudo apt-get install binfmt-support
+
+
+6. Start of phase 2 (this is executed on virtual armel machine). Do these commands:
+
+  $ sudo modprobe binfmt_misc
+  $ sudo cp /usr/bin/qemu-arm-static rootfs/usr/bin
+  $ sudo mkdir rootfs/dev/pts
+  $ sudo mount -t devpts devpts rootfs/dev/pts
+  $ sudo mount -t proc proc rootfs/proc
+  $ sudo chroot rootfs/
+
+(this is executed on virtual armel machine)
+  $ /debootstrap/debootstrap --second-stage
+
+7. To add the apt repositories, you must append these lines in /etc/apt/sources.list
+
+  deb http://security.debian.org/ squeeze/updates main contrib non-free
+  deb-src http://security.debian.org/ squeeze/updates main contrib non-free
+  deb http://ftp.debian.org/debian/  squeeze main contrib non-free
+  deb-src http://ftp.debian.org/debian/  squeeze main contrib non-free
+
+8. Update the list of the packages 
+  
+  $ apt-get update
+ 
+9. Config your language
+
+  $ export LANG=C
+  $ apt-get install apt-utils dialog locales
+
+  $ dpkg-reconfigure locales
+  $ export LANG=en_US.UTF-8
+
+10. Installation of some important packages
+
+  $ apt-get install dhcp3-client udev netbase ifupdown iproute openssh-server iputils-ping wget net-tools ntpdate nano less
+
+
+11. Config your network adapter usb11 and dhcp. Add in /etc/network/interfaces these lines
+
+  # Wireless interfaces
+  iface wlan0 inet dhcp
+          wireless_mode managed
+          wireless_essid any
+          wpa-driver wext
+          wpa-conf /etc/wpa_supplicant.conf
+
+  auto usb0
+  iface usb0 inet dhcp
+
+
+12. To config the file system add in /etc/fstab these lines:
+
+  /dev/root      /dev/sda2       ext3    noatime,errors=remount-ro  0 1
+  tmpfs          /tmp            tmpfs   defaults                   0 0
+
+13. To config the console
+
+  $ echo 'T0:2345:respawn:/sbin/getty -L ttyAMA0 115200 linux' >> /etc/inittab
+  $ sed -i 's/^\([1-6]:.* tty[1-6]\)/#\1/' /etc/inittab
+
+
+13. To config the host name:
+
+  $ hostname <name>
+
+14. To add root password
+
+  $ passwd
+
+15. Exit from the armel virtual machine
+
+  $ exit
+
+16. TO install the modules of Linux Kernel
+
+  $ sudo make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- INSTALL_MOD_PATH=<path_to>/rootfs modules_install
+
+
+17. and unfortunately this is only the beginning :) 
+
+in this image we still didn't manage to enable the  TV-console, so we will try to do it later
+
+Stanimir Bonev, Olimex Ltd

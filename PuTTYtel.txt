@@ -1,0 +1,7 @@
+madmonkey login: root
+
+dmesg // dmesg (pour l'anglais "display message", "afficher message" en français) 
+	est une commande sur les systèmes d'exploitation de type Unix qui affiche la
+	mémoire tampon de message du noyau.
+
+Linux version 3.4.113.29-madmonkey / Driver allwinner sunxi / 

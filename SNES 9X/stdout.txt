@@ -1,0 +1,6 @@
+Reading config file C:\Users\Freak\OneDrive\Bureau\SNES 9X/snes9x.debugger.cfg
+Saving	config file	C:\Users\Freak\OneDrive\Bureau\SNES 9X/snes9x.debugger.cfg
+No ROM file header found.
+Map_LoROMMap
+"SUPER MARIO ALL_STARS" [checksum ok] LoROM, 16Mbits, Type: ROM+RAM+BAT, Mode: 20, TV: NTSC, S-RAM: 8KB, ROMId: ____ Company: 01 CRC32: 925637C7
+Saving	config file	C:\Users\Freak\OneDrive\Bureau\SNES 9X/snes9x.debugger.cfg

@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "gnw_library")(type "Legacy")(uri "${KIPRJMOD}/gnw_library.lib")(options "")(descr ""))
+  (lib (name "g&w-rescue")(type "KiCad")(uri "${KIPRJMOD}/g&w-rescue.kicad_sym")(options "")(descr ""))
+)
