@@ -1,8 +1,8 @@
 # game-and-watch-hardware
-![Version 0.1](https://github.com/freakdoctor/game-and-watch-R16-hardware/blob/main/Visuels/Game_and_Watch_R16_1.png "Version 0.1")
+![Version 0.1_Front](https://github.com/freakdoctor/game-and-watch-R16-hardware/blob/main/Visuels/Game_and_Watch_R16_1.png "Version 0.1_Front")
 
 
-![Version 1.2](https://raw.githubusercontent.com/Upcycle-Electronics/game-and-watch-hardware/main/Images-Version-Current/GnWschematic1v2.jpg "Version 1.2")
+![Version 0.1_Back](https://github.com/freakdoctor/game-and-watch-R16-hardware/blob/main/Visuels/Game_and_Watch_R16.png "Version 0.1_Back")
 
 
 ![progress](https://raw.githubusercontent.com/Upcycle-Electronics/game-and-watch-hardware/main/Images-Version-Current/workinprogress/progress.jpg "progress")
