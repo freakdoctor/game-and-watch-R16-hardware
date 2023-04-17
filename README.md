@@ -1,4 +1,9 @@
 # game-and-watch-hardware
+
+Basé sur le super travail d'Upcicle-Electronics pour les contours du PCB et le placement de certains composants.
+
+Tentative de faire rentrer le hardware d'une SNES Mini dans une Game & Watch dans l'espoir d'y faire tourner le remaster Super Nes des premiers Marios inclus dans Super Mario All Stars.
+
 ![Version 0.1_Front](https://github.com/freakdoctor/game-and-watch-R16-hardware/blob/main/Visuels/Game_and_Watch_R16_1.png "Version 0.1_Front")
 
 
