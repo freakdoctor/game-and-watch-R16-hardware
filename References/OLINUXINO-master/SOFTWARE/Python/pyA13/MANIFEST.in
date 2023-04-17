@@ -1,3 +1,0 @@
-include *.txt
-graft pyA13
-graft examples

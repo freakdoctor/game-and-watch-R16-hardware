@@ -1,3 +1,0 @@
-(sym_lib_table
-  (lib (name LCD-DRIVER_Rev_B)(type Legacy)(uri ${KIPRJMOD}/LCD-DRIVER_Rev_B.lib)(options "")(descr ""))
-)
