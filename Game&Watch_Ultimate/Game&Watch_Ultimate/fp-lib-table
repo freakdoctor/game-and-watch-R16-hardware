@@ -1,3 +1,0 @@
-(fp_lib_table
-  (lib (name gnw)(type KiCad)(uri ${KIPRJMOD}/gnw.pretty)(options "")(descr ""))
-)
